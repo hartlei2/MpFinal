@@ -2,29 +2,51 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
-            android:layout_width="328dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:gravity="center|left"
             android:paddingTop="5dp">
 
             <EditText
                 android:id="@+id/textToTranslate"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:onClick="translateText" /><![CDATA[
+
+            \
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:text="Text to Translate Here"
                 android:textColor="@android:color/black"
                 tools:layout_editor_absoluteX="51dp"
                 tools:layout_editor_absoluteY="67dp" />
+
+
+        ]]>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <Button
                 android:id="@+id/translateText"
@@ -34,7 +56,6 @@
                 android:text="Translate"
                 tools:layout_editor_absoluteX="275dp"
                 tools:layout_editor_absoluteY="64dp" />
-
         </TableRow>
 
         <TableRow
@@ -79,6 +100,7 @@
                 android:id="@+id/button6"
                 android:layout_width="118dp"
                 android:layout_height="92dp"
+                android:onClick="playQuacks"
                 android:text="Duck Quacks"
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="227dp" />
@@ -93,9 +115,39 @@
                 android:id="@+id/button3"
                 android:layout_width="118dp"
                 android:layout_height="92dp"
+                android:onClick="playBarks"
                 android:text="Dog Woofs"
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="341dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="95dp"
+                android:layout_height="92dp"
+                android:onClick="playDonald"
+                android:text="Wrong!"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="341dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="12sp"
+                android:text="Morse Code Translator"
+                android:textColor="@color/colorAccent"
+                android:textSize="36sp" />
         </TableRow>
 
     </TableLayout>

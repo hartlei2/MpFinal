@@ -2,6 +2,7 @@ package com.example.afinal;
 
 import android.media.MediaPlayer;
 import android.os.SystemClock;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,11 +23,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String API_URL = "https://api.funtranslations.com/translate/morse.json";
+    private static final String API_URL = "https://api.funtranslations.com/translate/morse.json ";
     private String translatedText;
     private MediaPlayer blank = null;
     private MediaPlayer longBeep;
     private MediaPlayer shortBeep;
+    private MediaPlayer longQuack;
+    private MediaPlayer shortQuack;
+    private MediaPlayer shortBark;
+    private MediaPlayer longBark;
+    private MediaPlayer shortDonald;
+    private MediaPlayer longDonald;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
         blank = MediaPlayer.create(MainActivity.this,R.raw.blank);
         longBeep = MediaPlayer.create(MainActivity.this,R.raw.dash);
         shortBeep = MediaPlayer.create(MainActivity.this,R.raw.dot);
+        longQuack = MediaPlayer.create(MainActivity.this,R.raw.longquack2);
+        shortQuack = MediaPlayer.create(MainActivity.this,R.raw.shortquack2);
+        longBark = MediaPlayer.create(MainActivity.this,R.raw.longbark);
+        shortBark = MediaPlayer.create(MainActivity.this,R.raw.shortbark);
+        shortDonald = MediaPlayer.create(MainActivity.this,R.raw.shortwrong);
+        longDonald = MediaPlayer.create(MainActivity.this,R.raw.wronglong);
     }
 
     public void translateText(View view) throws JSONException {
@@ -68,8 +81,18 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(jsonObjectRequest);
     }
+
+    public void playBarks (View view) {
+        playSound(longBark, shortBark, 0);
+    }
     public void playBeeps (View view) {
         playSound(longBeep, shortBeep, 0);
+    }
+    public void playQuacks (View view) {
+        playSound(longQuack, shortQuack, 0);
+    }
+    public void playDonald (View view) {
+        playSound(longDonald, shortDonald, 0);
     }
 
     private void playSound(final MediaPlayer dash, final MediaPlayer dot, final int offset) {
